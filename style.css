@@ -1,0 +1,203 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+}
+
+.weather-app {
+    width: 320px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 20px;
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.alert{
+    display: none;
+    color: rgb(255, 255, 255);
+    margin-left: 3.8rem;
+    margin-bottom: 1rem;
+}
+
+/* Search bar */
+.search {
+    display: flex;
+    gap: 10px;
+}
+
+.search input {
+    flex: 1;
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+.search button {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* Weather info */
+.weather {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.weather img {
+    width: 100px;
+    background: transparent;
+}
+
+.weather h1 {
+    font-size: 48px;
+    margin: 10px 0;
+}
+
+.weather h2 {
+    font-size: 26px;
+}
+
+
+
+.weather p {
+    opacity: 0.8;
+}
+
+/* Bottom details */
+.details {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card span {
+    font-size: 28px;
+}
+
+.card p {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.card h3 {
+    font-size: 18px;
+}
+
+.sun-section {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-evenly;
+}
+
+.sun-card {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 0.8rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.sun-card img {
+    width: 40px;
+    height: 40px;
+}
+
+.sun-card .label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.sun-card .risetime,.settime {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+
+
+
+@media (max-width: 768px) {
+  body {
+    padding: 0;
+  }
+
+  .weather-app {
+    width: 90%;
+    max-width: 360px;
+    padding: 16px;
+  }
+
+  .weather h1 {
+    font-size: 42px;
+  }
+
+  .weather h2 {
+    font-size: 22px;
+  }
+
+  .details {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    align-items: stretch;
+  }
+
+  .weather-app {
+    width: 100%;
+    height: 100vh;
+    border-radius: 0;
+    padding: 20px;
+  }
+
+  .search input {
+    font-size: 15px;
+  }
+
+  .weather img {
+    width: 90px;
+  }
+
+  .weather h1 {
+    font-size: 38px;
+  }
+
+  .sun-section {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .sun-card {
+    justify-content: center;
+  }
+}
