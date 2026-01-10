@@ -15,18 +15,36 @@ body {
 
 .weather-app {
     width: 320px;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(15px);
+   min-height: 520px;
+  position: relative;
+  overflow: hidden;
     border-radius: 20px;
-    padding: 20px;
+   padding: 20px;
     color: #fff;
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    
+}
+
+.weather-app > * {
+    position: relative;
+    z-index: 1;
+}
+
+.weather-app video {
+  position: absolute;
+    inset: 0;              
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    
+  
 }
 
 .alert{
     display: none;
     color: rgb(255, 255, 255);
-    margin-left: 3.8rem;
+    margin-left: 6rem;
     margin-bottom: 1rem;
 }
 
@@ -43,6 +61,12 @@ body {
     border: none;
     outline: none;
     font-size: 16px;
+    color: #fff;
+    border: 1px solid #fff;
+    background: transparent;
+}
+.search input::placeholder{
+    color: #fff;
 }
 
 .search button {
@@ -52,12 +76,20 @@ body {
     border: none;
     cursor: pointer;
     font-size: 18px;
+     color: #fff;
+    border: 1px solid #fff;
+    background: transparent;
 }
 
 /* Weather info */
 .weather {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     text-align: center;
     margin-top: 25px;
+    gap: 4rem;
+    
 }
 
 .weather img {
@@ -65,13 +97,23 @@ body {
     background: transparent;
 }
 
+.tempdetail{
+    height: 150px;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+   
+    align-items: flex-start;
+    justify-content: center;
+}
+
 .weather h1 {
-    font-size: 48px;
-    margin: 10px 0;
+    font-size: 30px;
+    /* margin: 10px 0; */
 }
 
 .weather h2 {
-    font-size: 26px;
+    font-size: 18px;
 }
 
 
@@ -90,6 +132,7 @@ body {
 .card {
     display: flex;
     align-items: center;
+   
     gap: 10px;
 }
 
@@ -104,6 +147,18 @@ body {
 
 .card h3 {
     font-size: 18px;
+}
+
+.details2 {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+.card2 {
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+    gap: 10px;
 }
 
 .sun-section {
@@ -164,6 +219,9 @@ body {
   }
 
   .details {
+    gap: 10px;
+  }
+  .details2 {
     gap: 10px;
   }
 }

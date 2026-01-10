@@ -9,6 +9,9 @@ const humidity = document.querySelector(".details .card h3");
 const WindSpeed = document.querySelector(".wind");
 const Sunrise = document.querySelector(".risetime");
 const Sunset = document.querySelector(".settime");
+const weatherapp = document.querySelector(".weather-app video");
+const Pressure = document.querySelector(".pressure");
+const Visibility = document.querySelector(".visibility");
 
 
 
@@ -22,34 +25,80 @@ function convertTime(unix) {
     return `${h}:${m} ${ampm}`;
 }
 
+
+
+
+
+
+
 async function weather(city){
 try{
     let rawdata  = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=83c6c5f9c9ca033e443730d50b128625`);
  if(!rawdata.ok){
+   
       throw new Error("Somthing went wrong");
-    }
-let realdata = await rawdata.json();
+      
+    }else{
 
-if (realdata.main.temp <= 0){
+    
+let realdata = await rawdata.json();
+console.log(realdata)
+    
+function imageRendering(){
+    if (realdata.main.temp <= 0){
     Weatherimg.src = "./images/snow.png"
 }else if( realdata.weather[0].description === "clear sky"){
      Weatherimg.src = "./images/clearweather.png"
+     
 }else{
     Weatherimg.src = "./images/sunnyweather.png"
+    
+}
 }
 
+function daynight(){
+    const sunrise = realdata.sys.sunrise * 1000;
+const sunset = realdata.sys.sunset * 1000;
+
+let currenttime = Date.now();
+
+if(currenttime >= sunrise && currenttime < sunset){
+    weatherapp.src = "./images/daycompress.mp4"
+}else{
+    weatherapp.src = "./images/nightsky2.mp4"
+}
+}
+
+
+daynight()
+
+imageRendering()
+
 Temperature.textContent = Math.floor(realdata.main.temp) + `°C`;
-City.textContent = realdata.name;
+City.textContent = realdata?.name
+  ? realdata.name + (realdata?.sys?.country ? " " + realdata.sys.country : "")
+  : "";
 Seassion.textContent = realdata.weather[0].description;
 humidity.textContent = realdata.main.humidity + `%`;
-WindSpeed.textContent = realdata.wind.speed + `m/s`;
+let mph = (realdata.wind.speed *  2.23694).toFixed(2);
+
+WindSpeed.textContent = mph + 'mph';
+Pressure.textContent = realdata.main.pressure +" "+ 'hPa'
+let vision = realdata.visibility;
+let km = vision / 1000;
+Visibility.textContent = km +" "+"km"
 Sunrise.textContent = convertTime(realdata.sys.sunrise);
+
 Sunset.textContent = convertTime(realdata.sys.sunset);
 
+
+
+}
 }
 catch(err){
     console.log(err.message)
 }
+
 
 }
 document.addEventListener("DOMContentLoaded",function(){
@@ -73,6 +122,8 @@ if(input.value === "" ){
 }else{
         localStorage.setItem("city",input.value)
 weather(input.value)
+input.value  = "";
+
 }
 
 })
@@ -84,13 +135,9 @@ if(e.key === "Enter"){
 })
 
 
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker
-      .register("./service-worker.js")
-      .then(() => console.log("Service Worker Registered"))
-      .catch(err => console.log("SW error", err));
-  });
-}
+
+
+
+
 
 

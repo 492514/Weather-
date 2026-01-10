@@ -12,7 +12,10 @@
 <body>
 
 <div class="weather-app">
-  <h3 class="alert">*Please Enter City*</h3>
+  <video autoplay muted loop playsinline>
+    <source class="backvideo" src="" type="video/mp4"/>
+  </video>
+  <h3 class="alert">*Enter City*</h3>
     <div class="search">
         <input type="text" placeholder="Search city...">
         <button>🔍</button>
@@ -20,12 +23,16 @@
 
     <div class="weather">
         <img src="./images/sunnyweather.png" alt="weather">
-        <h1></h1>
+        <div class="tempdetail">
+          <h1></h1>
         <h2></h2>
         <p></p>
+        </div>
+        
     </div>
 
-    <div class="details">
+ <div class="flexdetail">
+     <div class="details">
         <div class="card">
             <span>💧</span>
             <div>
@@ -41,7 +48,34 @@
                 <h3 class="wind"></h3>
             </div>
         </div>
+
+        
     </div>
+
+         <div class="details2">
+        <div class="card">
+            <span>
+              <img style="width: 35px; height: 35px;" src="images/icons8-pressure-gauge-50.png" alt="">
+            </span>
+            <div>
+                <p>Pressure</p>
+                <h3 class="pressure"></h3>
+            </div>
+        </div>
+
+        <div class="card2">
+              <span>
+              <img style="width: 35px; height: 35px;" src="images/visibility.png" alt="">
+            </span>
+            <div>
+                <p>Visibility</p>
+                <h3 class="visibility"></h3>
+            </div>
+        </div>
+
+        
+    </div>
+ </div>
     <div class="sun-section">
   <div class="sun-card">
     <img src="./images/sunrise.png" alt="sunrise">
