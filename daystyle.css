@@ -1,0 +1,78 @@
+
+.sun-container {
+  width: 330px;
+  height: 110px;
+  padding: 10px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  color: white;
+   border: 1px solid #bab3a8;
+}
+
+.sun-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  opacity: 0.9;
+  margin-bottom: 12px;
+}
+
+
+.sun-progress {
+  position: relative;
+     width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  height: 25px;
+  display: flex;
+  align-items: center;
+}
+
+.sun-progress::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+}
+
+
+.sun-line {
+  width: 0%;
+  max-width: 100%;
+  height: 6px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, orange, gold);
+  transition: width 2s ease-in-out;
+}
+
+
+.sun-indicator {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-50%, -50%);
+  color: #ff9800;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  transition: left 2s ease-in-out;
+}
+
+.sun-time {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.hidden{
+  display: none !important;
+}

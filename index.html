@@ -6,15 +6,17 @@
     <title>Weather App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
  
-    <link rel="stylesheet" href="style.css?v=2.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="daystyle.css">
+    <link rel="stylesheet" href="night.css">
 </head>
 <body>
 
 <div class="weather-app">
-  <video autoplay muted loop playsinline>
-    <source class="backvideo" src="" type="video/mp4"/>
+  <video class="backvideo" autoplay muted loop playsinline>
+    <source  src="" type="video/mp4"/>
   </video>
-  <h3 class="alert">*Enter City*</h3>
+ 
     <div class="search">
         <input type="text" placeholder="Search city...">
         <button>🔍</button>
@@ -75,25 +77,65 @@
         
     </div>
  </div>
-    <div class="sun-section">
-  <div class="sun-card">
-    <img src="./images/sunrise.png" alt="sunrise">
-    <div>
-      <p class="label">Sunrise</p>
-      <p class="risetime" id="sunrise"></p>
+    <div class="sun-section ">
+   <div class="sun-container">
+
+  <div class="sun-header">
+    <div class="sun-title"> ☀️ Sunrise </div>
+    <div class="sun-title">  🌙 Sunset</div>
+  </div>
+
+  <div class="sun-progress">
+    <div class="sun-line"></div>
+    <div class="sun-indicator">
+      ☀️
     </div>
   </div>
 
-  <div class="sun-card">
-    <img src="./images/sunset.png" alt="sunset">
-    <div>
-      <p class="label">Sunset</p>
-      <p class="settime" id="sunset"></p>
+  <div class="sun-time">
+ <P class="day-rise"></P>
+ <p class="day-set"></p>
+  </div>
+
+</div>
+  </div>
+
+
+
+ <div class="night-container">
+
+  <div class="night-header">
+    <div class="night-title">
+      
+      🌙 Sunset
+    </div>
+    <div class="night-title">
+      
+      ☀️ Sunrise
     </div>
   </div>
+
+  <div class="night-progress">
+    <div class="night-line"></div>
+    <div class="night-indicator">
+      
+    </div>
+  </div>
+
+  <div class="night-time">
+ <P class="night-rise"></P>
+ <p class="night-set"></p>
+  </div>
+
+</div>
+
+<div class="error-box" id="errorBox">
+  <span class="error-icon">⚠️</span>
+  <span class="error-text">City not found</span>
 </div>
 
 </div>
-<script src="script.js?v=2.0"></script>
+<script src="app.js"></script>
+
 </body>
 </html>

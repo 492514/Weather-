@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.night-container {
+    width: 100%;
+    max-width: 100%;              
+  height: auto;
+  padding: 14px;
+  margin-top: 15px;
+  border-radius: 0.8rem;       
+  color: white;
+  border: 1px solid #415e97;
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(80, 140, 255, 0.35),
+      rgba(30, 60, 120, 0.25),
+      rgba(0, 0, 0, 0.45)
+    );
+
+  backdrop-filter: blur(10px); 
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.night-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  opacity: 0.85;
+  margin-bottom: 10px;
+}
+
+
+.night-progress {
+  position: relative;
+     width: 100%;
+    max-width: 100%;
+  height: 24px;
+  display: flex;
+  align-items: center;
+}
+
+
+.night-progress::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+}
+
+
+
+.night-line {
+  height: 6px;
+  width: 0%;
+  max-width: 100%;
+  border-radius: 10px;
+  background: linear-gradient(
+    90deg,
+    #2b5876,
+    #4e7ac7,
+    #8ab4ff
+  );
+  box-shadow: 0 0 10px rgba(120, 160, 255, 0.6);
+  transition: width 2s ease-in-out;
+}
+
+
+.night-indicator {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-50%, -50%);
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #ffffff, #bfcfff);
+  box-shadow:
+    0 0 10px rgba(120, 160, 255, 0.9),
+    0 0 18px rgba(80, 120, 255, 0.6);
+  transition: left 2s ease-in-out;
+}
+
+
+.night-time {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;   
+  font-size: 18px;
+  font-weight: 600;
+}
+
+
+.hidden{
+  display: none !important;
+}
