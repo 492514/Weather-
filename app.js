@@ -12,6 +12,8 @@ const Sunset = document.querySelector(".settime");
 const weatherapp = document.querySelector(".backvideo");
 const Pressure = document.querySelector(".pressure");
 const Visibility = document.querySelector(".visibility");
+const feelLike = document.querySelector(".Feels-like");
+const Tempmax = document.querySelector(".Temp-max");
 
 // Day Loading Bar
 const sunSection = document.querySelector(".sun-section")
@@ -83,7 +85,7 @@ const eveningStart = sunset - (2 * 60 * 60 * 1000);
 
 
 if(currenttime >= sunrise && currenttime < eveningStart){
-    weatherapp.src = "./images/clearweather.mp4"
+    weatherapp.src = ""
 }else if(currenttime >= eveningStart && currenttime < sunset){
  weatherapp.src = "./images/sunsetvideo.mp4"
 }else{
@@ -116,6 +118,8 @@ Pressure.textContent = realdata.main.pressure +" "+ 'hPa'
 let vision = realdata.visibility;
 let km = vision / 1000;
 Visibility.textContent = km +" "+"km"
+feelLike.textContent =Math.floor(realdata.main.feels_like) +" "+`°C`;
+Tempmax.textContent =Math.floor(realdata.main.temp_max) +" "+`°C`;
 Sunrise.textContent = convertTime(realdata.sys.sunrise);
 
 Sunset.textContent = convertTime(realdata.sys.sunset);
@@ -139,7 +143,7 @@ else{
     let per = (passed / total) * 100;
     
     let p = Math.floor(per)
-    console.log(p)
+    
      sunLine.style.width = p + '%' 
      sunIndicator.style.left = p + '%'
 }
@@ -150,7 +154,7 @@ function nightLoading(realdata, curr, sunrise, sunset) {
 nightRise.textContent = convertTime(realdata.sys.sunset)
 
  
-  console.log(curr)
+
 
 
   const isNight = curr < sunrise || curr > sunset;
@@ -180,6 +184,7 @@ percent = Math.min(Math.max(percent, 0), 100);
 
 nightLine.style.width = percent + "%";
 nightIndicator.style.left = percent + "%";
+
 ;
 }
 
@@ -221,6 +226,7 @@ catch(err){
 }
 
 document.addEventListener("DOMContentLoaded",function(){
+  
     input.focus();
     let savecity = localStorage.getItem("city");
     if(savecity){

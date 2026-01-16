@@ -1,14 +1,17 @@
 
 .sun-container {
-  width: 330px;
-  height: 110px;
+  width: 100%;
+  max-width: 330px;
+  height: auto;
   padding: 10px;
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
   color: white;
-   border: 1px solid #bab3a8;
+  /* border: 1px solid #bab3a8; */
+  margin: 0 auto;
 }
+
 
 .sun-header {
   display: flex;
@@ -23,7 +26,6 @@
   position: relative;
      width: 100%;
     max-width: 100%;
-    overflow: hidden;
   height: 25px;
   display: flex;
   align-items: center;
@@ -75,4 +77,15 @@
 
 .hidden{
   display: none !important;
+}
+
+@media (max-width: 480px) {
+
+  .sun-section{
+    margin-top: 50px;
+  }
+  .sun-container {
+    max-width: 100%;
+    margin-bottom: 12px;
+  }
 }
