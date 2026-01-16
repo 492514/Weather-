@@ -20,7 +20,7 @@ body {
     border-radius: 20px;
    padding: 20px;
     color: #fff;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    /* box-shadow: 0 10px 30px rgba(0,0,0,0.3); */
     
 }
 
@@ -279,50 +279,58 @@ body {
 
   body {
     display: flex;
-   
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
   }
 
-
+  /* 📱 App container */
   .weather-app {
     position: fixed;
     inset: 0;
-  margin-top: 1rem;
-  margin-left: 1.5rem;
-    width: 100vw;
+
+    width: 100%;
     height: 100svh;
 
-    padding: 16px;
-    border-radius: 10px;
+    padding: 18px;
 
     display: flex;
     flex-direction: column;
-
+    align-items: center;
 
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
   }
 
- 
+  /* 🎥 Background video */
   .weather-app video {
     position: fixed;
     inset: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     z-index: -1;
   }
 
-
+  /* 🔍 Search */
   .search {
-    flex-shrink: 0;
-    margin-bottom: 12px;
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 18px;
   }
 
- 
+  /* 🌤 Weather main */
   .weather {
-    flex-shrink: 0;
-    margin-top: 16px;
+    width: 100%;
+    max-width: 320px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 10px;
     gap: 1.5rem;
   }
 
@@ -334,42 +342,62 @@ body {
     font-size: 36px;
   }
 
+  .tempdetail {
+    align-items: flex-start;
+  }
 
+  /* 📊 Details */
   .flexdetail {
-    flex-shrink: 0;
-    margin-top: 20px;
+    width: 100%;
+    max-width: 320px;
+    margin-top: 22px;
+
     display: flex;
+    justify-content: center;
+  }
+
+  .details {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+
+  .card {
+    width: 80px;
+    height: 60px;
+
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    
+
+    gap: 6px;
   }
 
-  .details{
-    gap: 2rem;
+  /* 🧭 Push bottom section */
+  .weather-app::after {
+    content: "";
+    flex-grow: 1;
   }
 
-  .card{
-    font-size: 40px;
-  }
-
-
-  .sun-section,
-  .night-container {
-    margin-top: auto;
-    flex-shrink: 0;
-  }
-
-  .sun-section {
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-
+  /* 🌞 / 🌙 Sun – Night */
   .sun-section,
   .night-container {
     width: 100%;
-    margin-bottom: 12px;
+    max-width: 320px;
+
+    margin-top: auto;
+  }
+
+  .sun-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
   }
 }
+
+
 
 
 
