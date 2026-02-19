@@ -7,7 +7,12 @@
 
 body {
     min-height: 100svh;
-    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    background:linear-gradient(
+        160deg,
+        #4facfe 100%,
+        #00f2fe 0%,
+        #38bdf8 100%
+    );
 }
 
 .weather-app {
@@ -20,6 +25,7 @@ body {
     border-radius: 20px;
    padding: 20px;
     color: #fff;
+      border: 1px solid white;
     /* box-shadow: 0 10px 30px rgba(0,0,0,0.3); */
     
 }
@@ -77,7 +83,7 @@ body {
 .weather {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     text-align: center;
     margin-top: 25px;
       flex-wrap: wrap;
@@ -96,12 +102,12 @@ body {
     min-width: 140px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
 }
 
 .weather h1 {
-    font-size: 30px;
+    font-size: 40px;
 }
 
 .weather p {
@@ -246,6 +252,7 @@ body {
     width: 90%;
     max-width: 360px;
     padding: 16px;
+    border: 1px solid white;
   }
 
   .flexdetail{
@@ -253,7 +260,7 @@ body {
   }
 
   .weather h1 {
-    font-size: 42px;
+    font-size: 52px;
   }
 
   .weather h2 {
@@ -267,6 +274,8 @@ body {
     gap: 10px;
   }
 }
+
+
 
 @media (max-width: 480px) {
 
@@ -284,7 +293,6 @@ body {
     overflow: hidden;
   }
 
-  /* 📱 App container */
   .weather-app {
     position: fixed;
     inset: 0;
@@ -302,7 +310,7 @@ body {
     -webkit-overflow-scrolling: touch;
   }
 
-  /* 🎥 Background video */
+  
   .weather-app video {
     position: fixed;
     inset: 0;
@@ -312,7 +320,7 @@ body {
     z-index: -1;
   }
 
-  /* 🔍 Search */
+
   .search {
     width: 100%;
     max-width: 320px;
@@ -321,13 +329,12 @@ body {
     margin-bottom: 18px;
   }
 
-  /* 🌤 Weather main */
   .weather {
     width: 100%;
     max-width: 320px;
 
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 
     margin-top: 10px;
@@ -339,19 +346,19 @@ body {
   }
 
   .weather h1 {
-    font-size: 36px;
+    font-size: 52px;
   }
 
   .tempdetail {
-    align-items: flex-start;
+   gap: 3px;
+    align-items: center;
   }
 
-  /* 📊 Details */
   .flexdetail {
     width: 100%;
     max-width: 320px;
-    margin-top: 22px;
-
+    /* margin-top: 22px; */
+    
     display: flex;
     justify-content: center;
   }
@@ -361,12 +368,13 @@ body {
     display: flex;
     justify-content: space-between;
     gap: 1.5rem;
+    overflow-wrap: normal;
   }
 
   .card {
     width: 80px;
     height: 60px;
-
+     object-fit: cover;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -375,13 +383,12 @@ body {
     gap: 6px;
   }
 
-  /* 🧭 Push bottom section */
+
   .weather-app::after {
     content: "";
     flex-grow: 1;
   }
 
-  /* 🌞 / 🌙 Sun – Night */
   .sun-section,
   .night-container {
     width: 100%;
@@ -403,27 +410,38 @@ body {
 
 @media (max-width: 400px) {
 
-
+.weather-app{
+  border: none;
+}
   .weather {
     gap: 1rem;
+    
   }
+ 
 
   .weather img {
     width: 80px;
   }
 
   .tempdetail h1 {
-    font-size: 34px;
+    font-weight: 400;
+    font-size: 45px;
   }
 
   .tempdetail h2 {
-    font-size: 18px;
+    font-weight: 600;
+    font-size: 20px;
+    
+  }
+  .tempdetail p{
+    font-size: 16px;
   }
 
   
   .details,
   .details2 {
-    gap: 12px;
+    margin-top: 5rem;
+    gap: 25px;
   }
 
   .card,

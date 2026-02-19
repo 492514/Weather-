@@ -9,7 +9,7 @@ const humidity = document.querySelector(".details .card h3");
 const WindSpeed = document.querySelector(".wind");
 const Sunrise = document.querySelector(".risetime");
 const Sunset = document.querySelector(".settime");
-const weatherapp = document.querySelector(".backvideo");
+const BackgroundVideo = document.querySelector(".backvideo");
 const Pressure = document.querySelector(".pressure");
 const Visibility = document.querySelector(".visibility");
 const feelLike = document.querySelector(".Feels-like");
@@ -61,17 +61,7 @@ try{
 
 let realdata = await rawdata.json();
 
-function imageRendering(){
-    if (realdata.main.temp <= 0){
-    Weatherimg.src = "./images/snow.png"
-}else if( realdata.weather[0].description === "clear sky"){
-     Weatherimg.src = "./images/clearweather.png"
-     
-}else{
-    Weatherimg.src = "./images/sunnyweather.png"
-    
-}
-}
+
 
 
 function daynight(){
@@ -83,13 +73,17 @@ let currenttime = Date.now();
 
 const eveningStart = sunset - (2 * 60 * 60 * 1000);
 
-
-if(currenttime >= sunrise && currenttime < eveningStart){
-    weatherapp.src = ""
+ if(realdata.weather[0].main === "Rain"){
+        BackgroundVideo.src = "./images/Rain.mp4";
+}else if(realdata.weather[0].main === "Clouds" ){
+    BackgroundVideo.src = "./images/clouds.mp4"
+}
+else if(currenttime >= sunrise && currenttime < eveningStart ){
+    BackgroundVideo.src = ""
 }else if(currenttime >= eveningStart && currenttime < sunset){
- weatherapp.src = "./images/sunsetvideo.mp4"
+ BackgroundVideo.src = "./images/sunsetvideo.mp4"
 }else{
-    weatherapp.src = "./images/nightsky2.mp4"
+    BackgroundVideo.src = "./images/nightsky2.mp4"
 }
 }
 
@@ -105,7 +99,7 @@ function toCityTime(unix, timezone) {
 
 
 function submitDetail(){
-Temperature.textContent = Math.floor(realdata.main.temp) + `°C`;
+Temperature.textContent = Math.floor(realdata.main.temp) + `°`;
 City.textContent = realdata?.name
   ? realdata.name + (realdata?.sys?.country ? " " + realdata.sys.country : "")
   : "";
@@ -210,7 +204,7 @@ function toggleDayNight(realdata) {
 }
 
 
-imageRendering()
+
 daynight()
 toggleDayNight(realdata)
 submitDetail()
